@@ -7,17 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: 算法 - Xavierのfangxinsheng</title>
+<title>call、apply、bind区别 - Xavierのfangxinsheng</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Xavierのfangxinsheng">
-<meta property="og:url" content="https://xavi-bryant.github.io/tags/算法/index.html">
+    <meta name="description" content="call()和apply()介绍这两个方法都是函数对象的方法，需要通过函数对象来调用。 当函数调用call()和apply()时，函数都会立即执行。  都可以用来改变函数的this对象的指向。  第一个参数都是this要指向的对象（函数执行时，this将指向这个对象），后续参数用来传实参。">
+<meta name="keywords" content="javacript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="call、apply、bind区别">
+<meta property="og:url" content="https://xavi-bryant.github.io/2019/10/18/call、apply、bind的区别/index.html">
 <meta property="og:site_name" content="Xavierのfangxinsheng">
+<meta property="og:description" content="call()和apply()介绍这两个方法都是函数对象的方法，需要通过函数对象来调用。 当函数调用call()和apply()时，函数都会立即执行。  都可以用来改变函数的this对象的指向。  第一个参数都是this要指向的对象（函数执行时，this将指向这个对象），后续参数用来传实参。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://xavi-bryant.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-10-18T09:36:23.745Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xavierのfangxinsheng">
+<meta name="twitter:title" content="call、apply、bind区别">
+<meta name="twitter:description" content="call()和apply()介绍这两个方法都是函数对象的方法，需要通过函数对象来调用。 当函数调用call()和apply()时，函数都会立即执行。  都可以用来改变函数的this对象的指向。  第一个参数都是this要指向的对象（函数执行时，this将指向这个对象），后续参数用来传实参。">
 <meta name="twitter:image" content="https://xavi-bryant.github.io/images/og_image.png">
 
 
@@ -76,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Xavierのfangxinsheng" height="28">
+                <img src="/images/logo.svg" alt="call、apply、bind区别" height="28">
             
             </a>
         </div>
@@ -128,35 +133,24 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">算法</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-6-tablet is-6-desktop is-9-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time>
+                <time class="level-item has-text-grey" datetime="2019-10-18T09:30:44.010Z">2019-10-18</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
+                <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 238 个字)
+                    5 分钟 读完 (大约 687 个字)
                 </span>
                 
                 
@@ -165,29 +159,78 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/08/05/digui/">递归</a>
+                call、apply、bind区别
             
         </h1>
         <div class="content">
-            <!-- # 递归 -->
-
-<p>函数直接或者间接调用自身</p>
-<p>避免无限递归 ，无限递归会导致执行栈溢出</p>
-<p>对比死循环</p>
+            <h2 id="call-和apply"><a href="#call-和apply" class="headerlink" title="call()和apply()"></a>call()和apply()</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>这两个方法都是函数对象的方法，需要通过函数对象来调用。</p>
+<p>当函数调用call()和apply()时，函数都会立即<strong>执行</strong>。</p>
 <ul>
-<li>死循环不会报错，也不会导致栈溢出</li>
-<li>无限递归会导致栈溢出</li>
+<li><p>都可以用来改变函数的this对象的指向。</p>
+</li>
+<li><p>第一个参数都是this要指向的对象（函数执行时，this将指向这个对象），后续参数用来传实参。</p>
+</li>
 </ul>
+<a id="more"></a>
+
+<h3 id="显式绑定this"><a href="#显式绑定this" class="headerlink" title="显式绑定this"></a>显式绑定this</h3><p>JS提供的绝大多数函数以及我们自己创建的所有函数，都可以使用call 和apply方法。</p>
+<p>它们的第一个参数是一个对象。因为你可以直接指定 this 绑定的对象，因此我们称之为显式绑定。</p>
+<p>例1：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="hljs-number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 将 this 指向 obj</span></span><br><span class="line">foo.apply(obj); <span class="hljs-comment">//打印结果：2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="第一个参数的传递"><a href="#第一个参数的传递" class="headerlink" title="第一个参数的传递"></a>第一个参数的传递</h3><p>1、thisObj不传或者为null、undefined时，函数中的this会指向window对象（非严格模式）。</p>
+<p>2、传递一个别的函数名时，函数中的this将指向这个<strong>函数的引用</strong>。</p>
+<p>3、传递的值为数字、布尔值、字符串时，this会指向这些基本类型的包装对象Number、Boolean、String。</p>
+<p>4、传递一个对象时，函数中的this则指向传递的这个对象。</p>
+<h3 id="call-和apply-的区别"><a href="#call-和apply-的区别" class="headerlink" title="call()和apply()的区别"></a>call()和apply()的区别</h3><p>call()和apply()方法都可以将实参在对象之后依次传递，但是apply()方法需要将实参封装到一个<strong>数组</strong>中统一传递（即使只有实参只有一个，也要放到数组中）。</p>
+<p>比如针对下面这样的代码：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> persion1 = &#123;</span><br><span class="line">    name: <span class="hljs-string">"小王"</span>,</span><br><span class="line">    gender: <span class="hljs-string">"男"</span>,</span><br><span class="line">    age: <span class="hljs-number">24</span>,</span><br><span class="line">    say: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">school, grade</span>) </span>&#123;</span><br><span class="line">        alert(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">" , "</span> + <span class="hljs-keyword">this</span>.gender + <span class="hljs-string">" ,今年"</span> + <span class="hljs-keyword">this</span>.age + <span class="hljs-string">" ,在"</span> + school + <span class="hljs-string">"上"</span> + grade);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">var</span> person2 = &#123;</span><br><span class="line">    name: <span class="hljs-string">"小红"</span>,</span><br><span class="line">    gender: <span class="hljs-string">"女"</span>,</span><br><span class="line">    age: <span class="hljs-number">18</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果是通过call的参数进行传参，是这样的：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">persion1.say.call(persion2, <span class="hljs-string">"实验小学"</span>, <span class="hljs-string">"六年级"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如果是通过apply的参数进行传参，是这样的：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">persion1.say.apply(persion2, [<span class="hljs-string">"实验小学"</span>, <span class="hljs-string">"六年级"</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>看到区别了吗，call后面的实参与say方法中是一一对应的，而apply传实参时，要封装成一个数组，数组中的元素是和say方法中一一对应的，这就是两者最大的区别。</p>
+<h3 id="call-和apply-的作用"><a href="#call-和apply-的作用" class="headerlink" title="call()和apply()的作用"></a>call()和apply()的作用</h3><ul>
+<li><p>改变this的指向</p>
+</li>
+<li><p>实现继承。Father.call(this)</p>
+</li>
+</ul>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind()"></a>bind()</h2><ul>
+<li><p>都能改变this的指向</p>
+</li>
+<li><p>call()/apply()是<strong>立即调用函数</strong></p>
+</li>
+<li><p>bind()是将函数返回，因此后面还需要加<code>()</code>才能调用。</p>
+</li>
+</ul>
+<p>bind()传参的方式与call()相同。</p>
+<p>参考链接：</p>
+<ul>
+<li><p><a href="https://www.jianshu.com/p/56a9c2d11adc" target="_blank" rel="noopener">https://www.jianshu.com/p/56a9c2d11adc</a></p>
+</li>
+<li><p><a href="https://github.com/lin-xin/blog/issues/7" target="_blank" rel="noopener">https://github.com/lin-xin/blog/issues/7</a></p>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000007402815" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007402815</a></p>
+</li>
+<li><p><a href="http://www.xiaoxiaohan.com/js/38.html" target="_blank" rel="noopener">JS中改变this指向的方法</a></p>
+</li>
+</ul>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/05/digui/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/javacript/">javacript</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -195,9 +238,55 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/05/digui/">
+                <span class="level-item">递归</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -564,7 +653,363 @@
 
 
 
+                         
+        
+        
+        
+        
     
+        <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-left ">
+            <!-- 
+                
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Xavier">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Xavier
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        我很欣赏你 当我的走狗吧
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+            
+                
+            
+                <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+            
+                
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/1-HTML和CSS基础/">
+            <span class="level-start">
+                <span class="level-item">1.HTML和CSS基础</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/js基础/">
+            <span class="level-start">
+                <span class="level-item">js基础</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/数据算法/">
+            <span class="level-start">
+                <span class="level-item">数据算法</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+            
+                <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/javacript/" style="font-size: 10px;">javacript</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+</div>
+             -->
+            
+                <div class="column-right-shadow is-hidden-widescreen ">
+                
+                    <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/18/call、apply、bind的区别/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-18T09:30:44.010Z">2019-10-18</time></div>
+                    <a href="/2019/10/18/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/05/digui/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time></div>
+                    <a href="/2019/08/05/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/21/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-21T11:11:48.095Z">2019-07-21</time></div>
+                    <a href="/2019/07/21/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/1-HTML和CSS基础/">1.HTML和CSS基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+                
+                    <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+                
+                    <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML/">
+                        <span class="tag">HTML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/javacript/">
+                        <span class="tag">javacript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+                
+                </div>
+            
+        </div>
+        
                 
 
     
@@ -738,7 +1183,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Xavierのfangxinsheng" height="28">
+                    <img src="/images/logo.svg" alt="call、apply、bind区别" height="28">
                 
                 </a>
                 <p class="is-size-7">
