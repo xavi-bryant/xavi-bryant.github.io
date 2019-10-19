@@ -17,14 +17,14 @@ textarea {
 @media screen and (min-width: 1280px) {
   .is-1-column .container,
   .is-2-column .container {
-    max-width: 960px;
-    width: 960px;
+    max-width: 1152px;
+    width: 1152px;
   }
 }
 @media screen and (min-width: 1472px) {
   .is-2-column .container {
-    max-width: 1152px;
-    width: 1152px;
+    max-width: 1344px;
+    width: 1344px;
   }
   .is-1-column .container {
     max-width: 960px;
@@ -106,11 +106,24 @@ img.thumbnail {
 .navbar-main .navbar-item {
   display: flex;
   align-items: center;
-  padding: 1.25rem 0.75rem;
+  padding: 1.25rem 1.75rem;
 }
 .navbar-main .navbar-item.is-active {
   color: #3273dc;
   background-color: transparent;
+}
+.navbar-main .box01 {
+  border-radius: 1rem;
+  padding-top: 2px;
+  border: 0 solid #fff;
+  box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
+  height: 25px;
+}
+.navbar-main .box01 input {
+  border: 0 solid #fff;
+}
+.navbar-main .bigsearch {
+  margin-right: 10px;
 }
 @media screen and (max-width: 1087px) {
   .navbar-main .navbar-menu {
@@ -280,7 +293,7 @@ img.thumbnail {
   border: none;
 }
 .is-size-7 {
-  font-size: 0.85rem !important;
+  font-size: 1.2rem !important;
 }
 .is-7by1 {
   padding-top: 42.8%;
@@ -520,4 +533,30 @@ figure.highlight .section {
 }
 .gist .file {
   all: initial;
+}
+.level-item .is-light {
+  color: #000;
+  font-size: 20px;
+  border-radius: 15px;
+  border-bottom: none;
+}
+.level-item .is-light:hover {
+  color: #fff;
+  border-bottom: none;
+  background: #38b7ea;
+}
+.level-item a {
+  color: #0593d3;
+  border-bottom: none;
+  border-bottom: 1px solid #0593d3;
+}
+.level-item a:hover {
+  color: #fc6423;
+  border-bottom: none;
+  border-bottom: 1px solid #fc6423;
+}
+.columns {
+  margin-left: -5.75rem;
+  margin-right: -5.75rem;
+  margin-top: -0.75rem;
 }

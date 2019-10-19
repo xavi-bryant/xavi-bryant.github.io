@@ -6,6 +6,7 @@
     line-height: 24px;
     outline: none;
     transform: translateY(120px);
+    border:1px solid salmon
 }
 #back-to-top.fade-in {
     opacity: 1;
