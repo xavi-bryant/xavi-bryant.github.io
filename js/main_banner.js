@@ -156,7 +156,7 @@ $(document).ready(function () {
         banner.init({
             container:"#banner",
             datas:imgSrcDate,
-            autoplaySpeed:8000,
+            autoplaySpeed:5000,
             autoplay: true
         });
     })
