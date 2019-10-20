@@ -293,7 +293,7 @@ img.thumbnail {
   border: none;
 }
 .is-size-7 {
-  font-size: 1.2rem !important;
+  font-size: 1.1rem !important;
 }
 .is-7by1 {
   padding-top: 42.8%;
@@ -565,4 +565,78 @@ figure.highlight .section {
   font-size: 1.1em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+.gallery-item img {
+  width: 50em;
+  height: 26em;
+}
+.widget .label {
+  color: #363636;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.widget {
+  line-height: 1.6em;
+  word-wrap: break-word;
+  font-size: 0.9em;
+}
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.footer {
+  padding-bottom: 20px;
+}
+.footer a {
+  color: #38b7ea;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+  color: #fa8072;
+}
+.foot-li {
+  padding: 10px 0;
+  font-size: 16px;
+}
+.widget ul:not(#recent-post) li a:before,
+.widget ol:not(#recent-post) li a:before {
+  color: #ccc;
+  content: "\f0da";
+  font-size: 12px;
+  margin-right: 6px;
+  text-align: left;
+  font-family: FontAwesome;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.widget ul:not(#recent-post) li a:hover:before,
+.widget ol:not(#recent-post) li a:hover:before {
+  color: #333;
+}
+.level {
+  align-items: center;
+  justify-content: end;
+  margin-top: 20px;
+}
+.tag:not(body) {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4px;
+  color: #008c8c;
+  display: inline-flex;
+  font-size: 0.75rem;
+  height: 2em;
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  white-space: nowrap;
 }
