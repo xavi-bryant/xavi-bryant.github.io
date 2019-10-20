@@ -7,22 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>递归 - Xavierのfangxinsheng</title>
+<title>Hello World - Xavierのfangxinsheng</title>
 
 
-    <meta name="description" content="执行栈 尾递归     函数直接或者间接调用自身  避免无限递归 ，无限递归会导致执行栈溢出">
-<meta name="keywords" content="算法">
+    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="keywords" content="HTML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="递归">
-<meta property="og:url" content="https://xavi-bryant.github.io/2019/08/05/digui/index.html">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="https://xavi-bryant.github.io/2018/08/20/hello-world/index.html">
 <meta property="og:site_name" content="Xavierのfangxinsheng">
-<meta property="og:description" content="执行栈 尾递归     函数直接或者间接调用自身  避免无限递归 ，无限递归会导致执行栈溢出">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://xavi-bryant.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-10-19T09:15:40.399Z">
+<meta property="og:updated_time" content="2019-10-20T11:45:35.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="递归">
-<meta name="twitter:description" content="执行栈 尾递归     函数直接或者间接调用自身  避免无限递归 ，无限递归会导致执行栈溢出">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
 <meta name="twitter:image" content="https://xavi-bryant.github.io/images/og_image.png">
 
 
@@ -81,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="递归" height="28">
+                <img src="/images/logo.svg" alt="Hello World" height="28">
             
             </a>
         </div>
@@ -144,17 +144,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time>
+                <time class="level-item has-text-grey" datetime="2018-08-20T03:24:00.000Z">2018-08-20</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
+                <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 239 个字)
+                    1 分钟 读完 (大约 122 个字)
                 </span>
                 
                 
@@ -163,40 +163,26 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                递归
+                Hello World
             
         </h1>
         <div class="content">
-            <!-- # 递归 -->
-<div class="toc">
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<!-- ## Quick Start -->
 
-<!-- toc -->
-
-<ul>
-<li><a href="#zhi-xing-zhan">执行栈</a></li>
-<li><a href="#wei-di-gui">尾递归</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-函数直接或者间接调用自身
-
-<p>避免无限递归 ，无限递归会导致执行栈溢出</p>
 <a id="more"></a>
-<p>对比死循环</p>
-<ul>
-<li>死循环不会报错，也不会导致栈溢出</li>
-<li>无限递归会导致栈溢出</li>
-</ul>
-<blockquote>
-<p>不刺激你学的明白？</p>
-</blockquote>
-<p> <img src="/2019/08/05/digui/11.jpg" alt="center"></p>
-<h2><span id="zhi-xing-zhan">执行栈</span><a href="#zhi-xing-zhan" class="header-anchor"></a></h2><p>无论任何代码的执行都必须有一个执行环境，执行环境为代码提供支持</p>
-<p>执行环境是放到执行栈中的。</p>
-<p>每个函数调用，都需要创建一个函数的执行环境，函数调用结束执行环境销毁。</p>
-<p>执行栈有相对固定的，如果执行环境太多，执行无法容纳，会报错。</p>
-<h2><span id="wei-di-gui">尾递归</span><a href="#wei-di-gui" class="header-anchor"></a></h2><p>如果一个函数的最后一条语句是调用函数，并且调用函数不是表达式的一部分，则该函数称之为尾递归。</p>
+<h3><span id="create-a-new-post">Create a new post</span><a href="#create-a-new-post" class="header-anchor"></a></h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3><span id="run-server">Run server</span><a href="#run-server" class="header-anchor"></a></h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3><span id="generate-static-files">Generate static files</span><a href="#generate-static-files" class="header-anchor"></a></h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3><span id="deploy-to-remote-sites">Deploy to remote sites</span><a href="#deploy-to-remote-sites" class="header-anchor"></a></h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<!-- More info: [Deployment](https://hexo.io/docs/deployment.html) -->
 
             
         </div>
@@ -205,7 +191,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/算法/">算法</a>
+                    <a class="has-link-grey -link" href="/tags/HTML/">HTML</a>
                 </div>
             </div>
         </div>
@@ -265,19 +251,12 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/20/git/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/12/20/git/">
                 <i class="level-item fas fa-chevron-left"></i>
                 <span class="level-item">git基础入门</span>
             </a>
         </div>
         
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/21/hello-world/">
-                <span class="level-item">Hello World</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
         
     </div>
 </div>
@@ -410,18 +389,18 @@
         
         <article class="media">
             
-            <a href="/2019/10/20/git/" class="media-left">
+            <a href="/2019/06/20/call、apply、bind的区别/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-20T02:50:42.219Z">2019-10-20</time></div>
-                    <a href="/2019/10/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-20T01:00:00.000Z">2019-06-20</time></div>
+                    <a href="/2019/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
                     </p>
                 </div>
             </div>
@@ -429,7 +408,7 @@
         
         <article class="media">
             
-            <a href="/2019/08/05/digui/" class="media-left">
+            <a href="/2019/04/20/digui/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
                 </p>
@@ -437,8 +416,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time></div>
-                    <a href="/2019/08/05/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T09:04:00.000Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
                     </p>
@@ -448,18 +427,18 @@
         
         <article class="media">
             
-            <a href="/2019/07/21/hello-world/" class="media-left">
+            <a href="/2018/12/20/git/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-21T11:11:48.095Z">2019-07-21</time></div>
-                    <a href="/2019/07/21/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:00:00.000Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
@@ -467,18 +446,18 @@
         
         <article class="media">
             
-            <a href="/2017/06/20/call、apply、bind的区别/" class="media-left">
+            <a href="/2018/08/20/hello-world/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-06-20T01:00:00.000Z">2017-06-20</time></div>
-                    <a href="/2017/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-20T03:24:00.000Z">2018-08-20</time></div>
+                    <a href="/2018/08/20/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
                     </p>
                 </div>
             </div>
@@ -551,9 +530,9 @@
         <ul class="menu-list">
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
+            <a class="level is-marginless" href="/archives/2019/06/">
                 <span class="level-start">
-                    <span class="level-item">十月 2019</span>
+                    <span class="level-item">六月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -562,9 +541,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
+            <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">八月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -573,9 +552,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
+            <a class="level is-marginless" href="/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">七月 2019</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -584,9 +563,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
+            <a class="level is-marginless" href="/archives/2018/08/">
                 <span class="level-start">
-                    <span class="level-item">六月 2017</span>
+                    <span class="level-item">八月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -741,18 +720,18 @@
         
         <article class="media">
             
-            <a href="/2019/10/20/git/" class="media-left">
+            <a href="/2019/06/20/call、apply、bind的区别/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-20T02:50:42.219Z">2019-10-20</time></div>
-                    <a href="/2019/10/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-20T01:00:00.000Z">2019-06-20</time></div>
+                    <a href="/2019/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
                     </p>
                 </div>
             </div>
@@ -760,7 +739,7 @@
         
         <article class="media">
             
-            <a href="/2019/08/05/digui/" class="media-left">
+            <a href="/2019/04/20/digui/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
                 </p>
@@ -768,8 +747,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time></div>
-                    <a href="/2019/08/05/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T09:04:00.000Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
                     </p>
@@ -779,18 +758,18 @@
         
         <article class="media">
             
-            <a href="/2019/07/21/hello-world/" class="media-left">
+            <a href="/2018/12/20/git/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-21T11:11:48.095Z">2019-07-21</time></div>
-                    <a href="/2019/07/21/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:00:00.000Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
@@ -798,18 +777,18 @@
         
         <article class="media">
             
-            <a href="/2017/06/20/call、apply、bind的区别/" class="media-left">
+            <a href="/2018/08/20/hello-world/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-06-20T01:00:00.000Z">2017-06-20</time></div>
-                    <a href="/2017/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-20T03:24:00.000Z">2018-08-20</time></div>
+                    <a href="/2018/08/20/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
                     </p>
                 </div>
             </div>
@@ -882,9 +861,9 @@
         <ul class="menu-list">
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
+            <a class="level is-marginless" href="/archives/2019/06/">
                 <span class="level-start">
-                    <span class="level-item">十月 2019</span>
+                    <span class="level-item">六月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -893,9 +872,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
+            <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">八月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -904,9 +883,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
+            <a class="level is-marginless" href="/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">七月 2019</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -915,9 +894,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
+            <a class="level is-marginless" href="/archives/2018/08/">
                 <span class="level-start">
-                    <span class="level-item">六月 2017</span>
+                    <span class="level-item">八月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1069,18 +1048,18 @@
         
         <article class="media">
             
-            <a href="/2019/10/20/git/" class="media-left">
+            <a href="/2019/06/20/call、apply、bind的区别/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-20T02:50:42.219Z">2019-10-20</time></div>
-                    <a href="/2019/10/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-20T01:00:00.000Z">2019-06-20</time></div>
+                    <a href="/2019/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
                     </p>
                 </div>
             </div>
@@ -1088,7 +1067,7 @@
         
         <article class="media">
             
-            <a href="/2019/08/05/digui/" class="media-left">
+            <a href="/2019/04/20/digui/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
                 </p>
@@ -1096,8 +1075,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time></div>
-                    <a href="/2019/08/05/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T09:04:00.000Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
                     </p>
@@ -1107,18 +1086,18 @@
         
         <article class="media">
             
-            <a href="/2019/07/21/hello-world/" class="media-left">
+            <a href="/2018/12/20/git/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-21T11:11:48.095Z">2019-07-21</time></div>
-                    <a href="/2019/07/21/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:00:00.000Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
@@ -1126,18 +1105,18 @@
         
         <article class="media">
             
-            <a href="/2017/06/20/call、apply、bind的区别/" class="media-left">
+            <a href="/2018/08/20/hello-world/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-06-20T01:00:00.000Z">2017-06-20</time></div>
-                    <a href="/2017/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-20T03:24:00.000Z">2018-08-20</time></div>
+                    <a href="/2018/08/20/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
                     </p>
                 </div>
             </div>
@@ -1210,9 +1189,9 @@
         <ul class="menu-list">
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
+            <a class="level is-marginless" href="/archives/2019/06/">
                 <span class="level-start">
-                    <span class="level-item">十月 2019</span>
+                    <span class="level-item">六月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1221,9 +1200,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
+            <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">八月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1232,9 +1211,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
+            <a class="level is-marginless" href="/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">七月 2019</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1243,9 +1222,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
+            <a class="level is-marginless" href="/archives/2018/08/">
                 <span class="level-start">
-                    <span class="level-item">六月 2017</span>
+                    <span class="level-item">八月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1277,7 +1256,7 @@
             <div class="level-start has-text-centered-mobile" style="margin: 0 auto">
                 <!-- <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="递归" height="28">
+                    <img src="/images/logo.svg" alt="Hello World" height="28">
                 
                 </a> -->
                 <p class="is-size-7">

@@ -7,17 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>归档: 2019/10 - Xavierのfangxinsheng</title>
+<title>递归 - Xavierのfangxinsheng</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Xavierのfangxinsheng">
-<meta property="og:url" content="https://xavi-bryant.github.io/archives/2019/10/index.html">
+    <meta name="description" content="执行栈 尾递归     函数直接或者间接调用自身  避免无限递归 ，无限递归会导致执行栈溢出">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="递归">
+<meta property="og:url" content="https://xavi-bryant.github.io/2019/04/20/digui/index.html">
 <meta property="og:site_name" content="Xavierのfangxinsheng">
+<meta property="og:description" content="执行栈 尾递归     函数直接或者间接调用自身  避免无限递归 ，无限递归会导致执行栈溢出">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://xavi-bryant.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-10-20T11:45:11.788Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xavierのfangxinsheng">
+<meta name="twitter:title" content="递归">
+<meta name="twitter:description" content="执行栈 尾递归     函数直接或者间接调用自身  避免无限递归 ，无限递归会导致执行栈溢出">
 <meta name="twitter:image" content="https://xavi-bryant.github.io/images/og_image.png">
 
 
@@ -70,13 +75,13 @@
 
 <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Xavierのfangxinsheng" height="28">
+                <img src="/images/logo.svg" alt="递归" height="28">
             
             </a>
         </div>
@@ -133,375 +138,157 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
-
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        十月 2019
-        </h3>
-        <div class="timeline">
+<div class="card">
+    
+    <div class="card-content article ">
         
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-20T09:04:00.000Z">2019-04-20</time>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-10-20T02:50:42.219Z">2019-10-20</time>
-                        <a href="/2019/10/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/git/">git</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
                 </div>
-            </article>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 239 个字)
+                </span>
+                
+                
+            </div>
+        </div>
         
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                递归
+            
+        </h1>
+        <div class="content">
+            <!-- # 递归 -->
+<div class="toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#zhi-xing-zhan">执行栈</a></li>
+<li><a href="#wei-di-gui">尾递归</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+函数直接或者间接调用自身
+
+<p>避免无限递归 ，无限递归会导致执行栈溢出</p>
+<a id="more"></a>
+<p>对比死循环</p>
+<ul>
+<li>死循环不会报错，也不会导致栈溢出</li>
+<li>无限递归会导致栈溢出</li>
+</ul>
+<blockquote>
+<p>不刺激你学的明白？</p>
+</blockquote>
+<p> <img src="/2019/04/20/digui/11.jpg" alt="center"></p>
+<h2><span id="zhi-xing-zhan">执行栈</span><a href="#zhi-xing-zhan" class="header-anchor"></a></h2><p>无论任何代码的执行都必须有一个执行环境，执行环境为代码提供支持</p>
+<p>执行环境是放到执行栈中的。</p>
+<p>每个函数调用，都需要创建一个函数的执行环境，函数调用结束执行环境销毁。</p>
+<p>执行栈有相对固定的，如果执行环境太多，执行无法容纳，会报错。</p>
+<h2><span id="wei-di-gui">尾递归</span><a href="#wei-di-gui" class="header-anchor"></a></h2><p>如果一个函数的最后一条语句是调用函数，并且调用函数不是表达式的一部分，则该函数称之为尾递归。</p>
+
+            
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/算法/">算法</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">由于能力有限，若有错误或者不当之处，还请大家批评指正，一起学习交流！如果喜欢我的这篇博客，请支持打赏一下！</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat.jpg" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<!-- <div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div> -->
+
+                
+                
+<!-- <div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div> -->
+
+                
         </div>
     </div>
 </div>
 
 
-</div>
-                
-    
-    
-    
-    
-    <div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-            
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered" style="flex-shrink: 1">
-                <div>
-                    
-                    <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Xavier">
-                    </figure>
-                    
-                    <p class="is-size-4 is-block">
-                        Xavier
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        我很欣赏你 当我的走狗吧
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Shanghai, China</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        文章
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        4
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        分类
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        4
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        标签
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        4
-                    </p>
-                </div>
-            </div>
-        </nav>
-        
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
-                请关注我一下呗</a>
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/20/call、apply、bind的区别/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">call、apply、bind区别</span>
+            </a>
         </div>
         
         
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Github" href="https://github.com/xavi-bryant">
-                
-                <i class="fab fa-github"></i>
-                
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/20/git/">
+                <span class="level-item">git基础入门</span>
+                <i class="level-item fas fa-chevron-right"></i>
             </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Facebook" href="https://facebook.com">
-                
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Dribbble" href="https://dribbble.com">
-                
-                <i class="fab fa-dribbble"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="RSS" href="/">
-                
-                <i class="fas fa-rss"></i>
-                
-            </a>
-            
         </div>
         
     </div>
 </div>
-        
-            <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/10/20/git/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-20T02:50:42.219Z">2019-10-20</time></div>
-                    <a href="/2019/10/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/git/">git</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/08/05/digui/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time></div>
-                    <a href="/2019/08/05/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/07/21/hello-world/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-21T11:11:48.095Z">2019-07-21</time></div>
-                    <a href="/2019/07/21/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2017/06/20/call、apply、bind的区别/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-06-20T01:00:00.000Z">2017-06-20</time></div>
-                    <a href="/2017/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
+
+
 </div>
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/HTML和CSS基础/">
-            <span class="level-start">
-                <span class="level-item">HTML和CSS基础</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/git/">
-            <span class="level-start">
-                <span class="level-item">git</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/js基础/">
-            <span class="level-start">
-                <span class="level-item">js基础</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/数据算法/">
-            <span class="level-start">
-                <span class="level-item">数据算法</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-        
-            <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            标签云
-        </h3>
-        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javacript/" style="font-size: 10px;">javacript</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
-    </div>
-</div>
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-        
-        
-            <!-- <div class="column-right-shadow is-hidden-widescreen "> -->
-<div class="column-right-shadow is-hidden-widescreen ">
-            
                 
-            
-            </div>
-        
-    </div>
-    
-    
-
-<!-- 
-
-    
-
-
     
     
     
-
+    
     <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
         
             
@@ -623,18 +410,18 @@
         
         <article class="media">
             
-            <a href="/2019/10/20/git/" class="media-left">
+            <a href="/2019/06/20/call、apply、bind的区别/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-20T02:50:42.219Z">2019-10-20</time></div>
-                    <a href="/2019/10/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-20T01:00:00.000Z">2019-06-20</time></div>
+                    <a href="/2019/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
                     </p>
                 </div>
             </div>
@@ -642,7 +429,7 @@
         
         <article class="media">
             
-            <a href="/2019/08/05/digui/" class="media-left">
+            <a href="/2019/04/20/digui/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
                 </p>
@@ -650,8 +437,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time></div>
-                    <a href="/2019/08/05/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T09:04:00.000Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
                     </p>
@@ -661,18 +448,18 @@
         
         <article class="media">
             
-            <a href="/2019/07/21/hello-world/" class="media-left">
+            <a href="/2018/12/20/git/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-21T11:11:48.095Z">2019-07-21</time></div>
-                    <a href="/2019/07/21/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:00:00.000Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
@@ -680,18 +467,18 @@
         
         <article class="media">
             
-            <a href="/2017/06/20/call、apply、bind的区别/" class="media-left">
+            <a href="/2018/08/20/hello-world/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-06-20T01:00:00.000Z">2017-06-20</time></div>
-                    <a href="/2017/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-20T03:24:00.000Z">2018-08-20</time></div>
+                    <a href="/2018/08/20/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
                     </p>
                 </div>
             </div>
@@ -764,9 +551,9 @@
         <ul class="menu-list">
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
+            <a class="level is-marginless" href="/archives/2019/06/">
                 <span class="level-start">
-                    <span class="level-item">十月 2019</span>
+                    <span class="level-item">六月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -775,9 +562,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
+            <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">八月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -786,9 +573,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
+            <a class="level is-marginless" href="/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">七月 2019</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -797,9 +584,340 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
+            <a class="level is-marginless" href="/archives/2018/08/">
                 <span class="level-start">
-                    <span class="level-item">六月 2017</span>
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+        
+            <!-- <div class="column-right-shadow is-hidden-widescreen "> -->
+<div class="column-right-shadow  ">
+            
+                
+            
+            </div>
+        
+    </div>
+    
+    
+
+<!-- 
+
+    
+
+
+    
+    
+    
+
+    <div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Xavier">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Xavier
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        我很欣赏你 当我的走狗吧
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
+                请关注我一下呗</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/xavi-bryant">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/20/call、apply、bind的区别/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-20T01:00:00.000Z">2019-06-20</time></div>
+                    <a href="/2019/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/20/digui/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T09:04:00.000Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/20/git/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:00:00.000Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/08/20/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-20T03:24:00.000Z">2018-08-20</time></div>
+                    <a href="/2018/08/20/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/HTML和CSS基础/">
+            <span class="level-start">
+                <span class="level-item">HTML和CSS基础</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/git/">
+            <span class="level-start">
+                <span class="level-item">git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/js基础/">
+            <span class="level-start">
+                <span class="level-item">js基础</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/数据算法/">
+            <span class="level-start">
+                <span class="level-item">数据算法</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javacript/" style="font-size: 10px;">javacript</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -824,42 +942,331 @@
 
 
 
-    <!--  -->
-                
-                
-    
-    
-    
-    
-    <div class="column is-4-tablet is-3-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    <!--                      
         
+        
+        
+         -->
+    
+        <!-- <div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-left "> -->
+            <!-- 
+                
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Xavier">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Xavier
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        我很欣赏你 当我的走狗吧
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
+                请关注我一下呗</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
             
-        
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/xavi-bryant">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
         
     </div>
-    
-    
-
-<!-- 
-
-    
-
-
-    
-    
-    
-
-    <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-        
+</div>
             
+                <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
         
+        <article class="media">
+            
+            <a href="/2019/06/20/call、apply、bind的区别/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-20T01:00:00.000Z">2019-06-20</time></div>
+                    <a href="/2019/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/20/digui/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T09:04:00.000Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/20/git/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:00:00.000Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/08/20/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-20T03:24:00.000Z">2018-08-20</time></div>
+                    <a href="/2018/08/20/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
     </div>
-     -->
-
-
-
-    <!--  -->
+</div>
+            
+                
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/HTML和CSS基础/">
+            <span class="level-start">
+                <span class="level-item">HTML和CSS基础</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/git/">
+            <span class="level-start">
+                <span class="level-item">git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/js基础/">
+            <span class="level-start">
+                <span class="level-item">js基础</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/数据算法/">
+            <span class="level-start">
+                <span class="level-item">数据算法</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+            
+                <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javacript/" style="font-size: 10px;">javacript</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+</div>
+            
+                <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+             -->
+            <!--  -->
+                <!-- <div class="column-right-shadow is-hidden-widescreen ">
+                
+                    
+                
+                </div> -->
+            <!--  -->
+        <!-- </div> -->
+        <!--  -->
                 
             </div>
         </div>
@@ -870,7 +1277,7 @@
             <div class="level-start has-text-centered-mobile" style="margin: 0 auto">
                 <!-- <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Xavierのfangxinsheng" height="28">
+                    <img src="/images/logo.svg" alt="递归" height="28">
                 
                 </a> -->
                 <p class="is-size-7">

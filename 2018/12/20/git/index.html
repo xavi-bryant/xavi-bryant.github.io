@@ -7,22 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>call、apply、bind区别 - Xavierのfangxinsheng</title>
+<title>git基础入门 - Xavierのfangxinsheng</title>
 
 
-    <meta name="description" content="call()和apply()介绍这两个方法都是函数对象的方法，需要通过函数对象来调用。 当函数调用call()和apply()时，函数都会立即执行。  都可以用来改变函数的this对象的指向。  第一个参数都是this要指向的对象（函数执行时，this将指向这个对象），后续参数用来传实参。">
-<meta name="keywords" content="javacript">
+    <meta name="description" content="Git是一款免费、开源的分布式 版本控制系统 ，用于敏捷高效地处理任何或小或大的项目。">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="call、apply、bind区别">
-<meta property="og:url" content="https://xavi-bryant.github.io/2017/06/20/call、apply、bind的区别/index.html">
+<meta property="og:title" content="git基础入门">
+<meta property="og:url" content="https://xavi-bryant.github.io/2018/12/20/git/index.html">
 <meta property="og:site_name" content="Xavierのfangxinsheng">
-<meta property="og:description" content="call()和apply()介绍这两个方法都是函数对象的方法，需要通过函数对象来调用。 当函数调用call()和apply()时，函数都会立即执行。  都可以用来改变函数的this对象的指向。  第一个参数都是this要指向的对象（函数执行时，this将指向这个对象），后续参数用来传实参。">
+<meta property="og:description" content="Git是一款免费、开源的分布式 版本控制系统 ，用于敏捷高效地处理任何或小或大的项目。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://xavi-bryant.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-10-19T19:23:12.040Z">
+<meta property="og:updated_time" content="2019-10-20T11:45:59.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="call、apply、bind区别">
-<meta name="twitter:description" content="call()和apply()介绍这两个方法都是函数对象的方法，需要通过函数对象来调用。 当函数调用call()和apply()时，函数都会立即执行。  都可以用来改变函数的this对象的指向。  第一个参数都是this要指向的对象（函数执行时，this将指向这个对象），后续参数用来传实参。">
+<meta name="twitter:title" content="git基础入门">
+<meta name="twitter:description" content="Git是一款免费、开源的分布式 版本控制系统 ，用于敏捷高效地处理任何或小或大的项目。">
 <meta name="twitter:image" content="https://xavi-bryant.github.io/images/og_image.png">
 
 
@@ -81,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="call、apply、bind区别" height="28">
+                <img src="/images/logo.svg" alt="git基础入门" height="28">
             
             </a>
         </div>
@@ -144,17 +144,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2017-06-20T01:00:00.000Z">2017-06-20</time>
+                <time class="level-item has-text-grey" datetime="2018-12-20T01:00:00.000Z">2018-12-20</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                <a class="has-link-grey -link" href="/categories/git/">git</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 687 个字)
+                    20 分钟 读完 (大约 3056 个字)
                 </span>
                 
                 
@@ -163,65 +163,188 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                call、apply、bind区别
+                git基础入门
             
         </h1>
         <div class="content">
-            <h2><span id="call-he-apply">call()和apply()</span><a href="#call-he-apply" class="header-anchor"></a></h2><h3><span id="jie-shao">介绍</span><a href="#jie-shao" class="header-anchor"></a></h3><p>这两个方法都是函数对象的方法，需要通过函数对象来调用。</p>
-<p>当函数调用call()和apply()时，函数都会立即<strong>执行</strong>。</p>
-<ul>
-<li><p>都可以用来改变函数的this对象的指向。</p>
-</li>
-<li><p>第一个参数都是this要指向的对象（函数执行时，this将指向这个对象），后续参数用来传实参。</p>
-</li>
-</ul>
+            <blockquote>
+<p>Git是一款免费、开源的<strong>分布式</strong> <strong>版本控制系统</strong> ，用于敏捷高效地处理任何或小或大的项目。</p>
+</blockquote>
 <a id="more"></a>
 
-<h3><span id="xian-shi-bang-ding-this">显式绑定this</span><a href="#xian-shi-bang-ding-this" class="header-anchor"></a></h3><p>JS提供的绝大多数函数以及我们自己创建的所有函数，都可以使用call 和apply方法。</p>
-<p>它们的第一个参数是一个对象。因为你可以直接指定 this 绑定的对象，因此我们称之为显式绑定。</p>
-<p>例1：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="hljs-number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 将 this 指向 obj</span></span><br><span class="line">foo.apply(obj); <span class="hljs-comment">//打印结果：2</span></span><br></pre></td></tr></table></figure>
 
-<h3><span id="di-yi-ge-can-shu-de-chuan-di">第一个参数的传递</span><a href="#di-yi-ge-can-shu-de-chuan-di" class="header-anchor"></a></h3><p>1、thisObj不传或者为null、undefined时，函数中的this会指向window对象（非严格模式）。</p>
-<p>2、传递一个别的函数名时，函数中的this将指向这个<strong>函数的引用</strong>。</p>
-<p>3、传递的值为数字、布尔值、字符串时，this会指向这些基本类型的包装对象Number、Boolean、String。</p>
-<p>4、传递一个对象时，函数中的this则指向传递的这个对象。</p>
-<h3><span id="call-he-apply-de-qu-bie">call()和apply()的区别</span><a href="#call-he-apply-de-qu-bie" class="header-anchor"></a></h3><p>call()和apply()方法都可以将实参在对象之后依次传递，但是apply()方法需要将实参封装到一个<strong>数组</strong>中统一传递（即使只有实参只有一个，也要放到数组中）。</p>
-<p>比如针对下面这样的代码：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> persion1 = &#123;</span><br><span class="line">    name: <span class="hljs-string">"小王"</span>,</span><br><span class="line">    gender: <span class="hljs-string">"男"</span>,</span><br><span class="line">    age: <span class="hljs-number">24</span>,</span><br><span class="line">    say: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">school, grade</span>) </span>&#123;</span><br><span class="line">        alert(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">" , "</span> + <span class="hljs-keyword">this</span>.gender + <span class="hljs-string">" ,今年"</span> + <span class="hljs-keyword">this</span>.age + <span class="hljs-string">" ,在"</span> + school + <span class="hljs-string">"上"</span> + grade);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">var</span> person2 = &#123;</span><br><span class="line">    name: <span class="hljs-string">"小红"</span>,</span><br><span class="line">    gender: <span class="hljs-string">"女"</span>,</span><br><span class="line">    age: <span class="hljs-number">18</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果是通过call的参数进行传参，是这样的：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">persion1.say.call(persion2, <span class="hljs-string">"实验小学"</span>, <span class="hljs-string">"六年级"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>如果是通过apply的参数进行传参，是这样的：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">persion1.say.apply(persion2, [<span class="hljs-string">"实验小学"</span>, <span class="hljs-string">"六年级"</span>]);</span><br></pre></td></tr></table></figure>
-
-<p>看到区别了吗，call后面的实参与say方法中是一一对应的，而apply传实参时，要封装成一个数组，数组中的元素是和say方法中一一对应的，这就是两者最大的区别。</p>
-<h3><span id="call-he-apply-de-zuo-yong">call()和apply()的作用</span><a href="#call-he-apply-de-zuo-yong" class="header-anchor"></a></h3><ul>
-<li><p>改变this的指向</p>
-</li>
-<li><p>实现继承。Father.call(this)</p>
-</li>
+<h2><span id="git-de-li-shi">git的历史</span><a href="#git-de-li-shi" class="header-anchor"></a></h2><blockquote>
+<p>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
+</blockquote>
+<h2><span id="git-de-an-zhuang">git的安装</span><a href="#git-de-an-zhuang" class="header-anchor"></a></h2><p><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">下载地址</a></p>
+<p>注意：</p>
+<ol>
+<li>不要安装在中文目录</li>
+<li>不要使用桌面管理软件</li>
+</ol>
+<p>安装很简单，一直下一步即可。在任意的目录下右键，能看到菜单, 就表示安装成功了。</p>
+<h2><span id="git-san-ge-qu">git三个区</span><a href="#git-san-ge-qu" class="header-anchor"></a></h2><p>要对某个项目使用git进行管理，需要使用<code>git init</code>命令初始化git仓库<br><code>git init</code>会在当前目录生成一个隐藏文件夹 .git  不要去修改这个文件夹下的任意东西。</p>
+<p>git仓库会分成三个区</p>
+<p>工作区：我们书写代码的地方，工作的目录就叫工作区。</p>
+<p>暂存区：暂时存储的区域，在git中，代码无法直接从工作区提交到仓库区，而是需要先从工作区添加到暂存区，然后才能从暂存区提交到仓库区。暂存区的目的是避免误操作。</p>
+<p>本地仓库区：将保存在暂存区域的内容永久转储到 Git 仓库中，生成版本号。生成版本号之后，就可以任何的回退到某一个具体的版本。</p>
+<h2><span id="git-ji-ben-ming-ling">git基本命令</span><a href="#git-ji-ben-ming-ling" class="header-anchor"></a></h2><h3><span id="git-init">git init</span><a href="#git-init" class="header-anchor"></a></h3><ul>
+<li>作用：初始化git仓库，想要使用git对某个项目进行管理，需要<code>git init</code>进行初始化</li>
 </ul>
-<h2><span id="bind">bind()</span><a href="#bind" class="header-anchor"></a></h2><ul>
-<li><p>都能改变this的指向</p>
-</li>
-<li><p>call()/apply()是<strong>立即调用函数</strong></p>
-</li>
-<li><p>bind()是将函数返回，因此后面还需要加<code>()</code>才能调用。</p>
-</li>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 初始化仓库， 在当前目录下生成一个隐藏文件夹.git</span></span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<h3><span id="git-add">git add</span><a href="#git-add" class="header-anchor"></a></h3><ul>
+<li>作用：将文件由 <code>工作区</code> 添加到 <code>暂存区</code>，在git中，文件无法直接从工作区直接添加到仓库区，必须先从工作区添加到暂存区，再从暂存区添加到仓库区。</li>
+<li>命令：<code>git add 文件名/目录名</code></li>
 </ul>
-<p>bind()传参的方式与call()相同。</p>
-<p>参考链接：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 将index.html添加到暂存区</span></span><br><span class="line">git add index.html</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 将css目录下所有的文件添加到暂存区</span></span><br><span class="line">git add css</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 将当前目录下所有的js文件添加到暂存区</span></span><br><span class="line">git add *.js</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 添加当前目录下所有的文件</span></span><br><span class="line">git add .</span><br><span class="line">git add -A</span><br><span class="line">git add --all</span><br></pre></td></tr></table></figure>
+
+<h3><span id="git-commit">git commit</span><a href="#git-commit" class="header-anchor"></a></h3><p>作用：将文件由 暂存区 添加到 仓库区，生成版本号</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 将文件从暂存区提交到仓库</span></span><br><span class="line">git commit -m <span class="hljs-string">"提交说明"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 如果不写提交说明，会进入vi编辑器，没有写提交说明，是提交不成功的。</span></span><br><span class="line">git commit   <span class="hljs-comment"># 需要使用vi输入内容</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 如果是一个已经暂存过的文件，可以快速提交，如果是未追踪的文件，那么命令将不生效。</span></span><br><span class="line">git commit -a -m <span class="hljs-string">'提交说明'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 修改最近的一次提交说明， 如果提交说明不小心输错了，可以使用这个命令</span></span><br><span class="line">git commit --amend -m <span class="hljs-string">"提交说明"</span></span><br></pre></td></tr></table></figure>
+
+<h3><span id="git-config-pei-zhi">git config配置</span><a href="#git-config-pei-zhi" class="header-anchor"></a></h3><p>如果是第一次提交，需要配置提交者信息，推荐和github的账号邮箱一致</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># git config  user.name 你的目标用户名</span></span><br><span class="line"><span class="hljs-comment"># git config  user.email 你的目标邮箱名</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 使用--global参数，配置全局的用户名和邮箱，只需要配置一次即可。推荐配置github的用户名和密码</span></span><br><span class="line">git config  --global user.name jepson</span><br><span class="line">git config  --global user.email jepsonpp@qq.com</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 查看配置信息</span></span><br><span class="line">git config --list</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 取消配置</span></span><br><span class="line">git config --<span class="hljs-built_in">unset</span> --global user.name</span><br><span class="line">git config --<span class="hljs-built_in">unset</span> --global user.email</span><br></pre></td></tr></table></figure>
+
+<h3><span id="git-status">git status</span><a href="#git-status" class="header-anchor"></a></h3><ul>
+<li>作用：查看文件的状态</li>
+</ul>
 <ul>
-<li><p><a href="https://www.jianshu.com/p/56a9c2d11adc" target="_blank" rel="noopener">https://www.jianshu.com/p/56a9c2d11adc</a></p>
+<li>命令：<code>git status</code> <ul>
+<li>红色表示工作区中的文件需要提交</li>
+<li>绿色表示暂存区中的文件需要提交</li>
+</ul>
 </li>
-<li><p><a href="https://github.com/lin-xin/blog/issues/7" target="_blank" rel="noopener">https://github.com/lin-xin/blog/issues/7</a></p>
+<li>命令：<code>git stauts -s</code> 简化日志输出格式</li>
+</ul>
+<h3><span id="git-log">git log</span><a href="#git-log" class="header-anchor"></a></h3><ul>
+<li>作用：查看提交日志</li>
+<li><code>git log</code> 查看提交的日志</li>
+<li><code>git log --oneline</code> 简洁的日志信息</li>
+</ul>
+<p><img src="images/git01.png" alt></p>
+<h2><span id="git-chong-zhi">git重置</span><a href="#git-chong-zhi" class="header-anchor"></a></h2><h3><span id="git-reset">git reset</span><a href="#git-reset" class="header-anchor"></a></h3><ul>
+<li>作用：版本回退，将代码恢复到已经提交的某一个版本中。</li>
+<li><code>git reset --hard 版本号</code> 将代码回退到某个指定的版本(版本号只要有前几位即可)</li>
+<li><code>git reset --hard head~1</code>将版本回退到上一次提交<ul>
+<li>~1:上一次提交</li>
+<li>~2:上上次提交</li>
+<li>~0:当前提交</li>
+</ul>
 </li>
-<li><p><a href="https://segmentfault.com/a/1190000007402815" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007402815</a></p>
+</ul>
+<ul>
+<li>当使用了<code>git reset</code>命令后，版本会回退，使用<code>git log</code>只能看到当前版本之前的信息。使用<code>git reflog</code>可以查看所有的版本信息</li>
+</ul>
+<h2><span id="git-hu-shi-wen-jian">git忽视文件</span><a href="#git-hu-shi-wen-jian" class="header-anchor"></a></h2><blockquote>
+<p>在仓库中，有些文件是不想被git管理的，比如数据的配置密码、写代码的一些思路，node_modules等。git可以通过配置从而达到忽视掉一些文件，这样这些文件就可以不用提交了。</p>
+</blockquote>
+<ul>
+<li>在仓库的根目录创建一个<code>.gitignore</code>的文件，文件名是固定的。</li>
+<li>将不需要被git管理的文件路径添加到<code>.gitignore</code>中</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 忽视idea.txt文件</span></span><br><span class="line">idea.txt</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 忽视css下的index.js文件</span></span><br><span class="line">css/index.js</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 忽视css下的所有的js文件</span></span><br><span class="line">css/*.js</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 忽视css文件夹</span></span><br><span class="line">css</span><br></pre></td></tr></table></figure>
+
+<h1><span id="git-fen-zhi-cao-zuo">git分支操作</span><a href="#git-fen-zhi-cao-zuo" class="header-anchor"></a></h1><p>分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习Git的时候，另一个你正在另一个平行宇宙里努力学习SVN。</p>
+<p>如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了Git又学会了SVN！</p>
+<p><img src="images/fenzhi.png" alt></p>
+<h2><span id="wei-shi-me-yao-you-fen-zhi">为什么要有分支？</span><a href="#wei-shi-me-yao-you-fen-zhi" class="header-anchor"></a></h2><ul>
+<li>如果你要开发一个新的功能，需要2周时间，第一周你只能写50%代码，如果此时立即提交，代码没写完，不完整的代码会影响到别人无法工作。如果等代码写完再提交，代码很容易丢失，风险很大。</li>
+<li>有了分支，你就可以创建一个属于自己的分支，别人看不到，也不影响别人，你在自己的分支上工作，提交到自己的分支上，等到功能开发完毕，一次性的合并到原来的分支。这样既安全，又不影响他人工作。</li>
+</ul>
+<h2><span id="git-fen-zhi-ming-ling">git分支命令</span><a href="#git-fen-zhi-ming-ling" class="header-anchor"></a></h2><blockquote>
+<p>在git中，分支实质上仅仅是一个指针，每次代码提交后，这个分支指针就会向后移动，保证一直指向最后一次提交的的版本。git中使用HEAD指向当前分支</p>
+</blockquote>
+<h3><span id="chuang-jian-fen-zhi">创建分支</span><a href="#chuang-jian-fen-zhi" class="header-anchor"></a></h3><ul>
+<li><code>git branch 分支名称</code>创建分支，分支中的代码，在创建时与当前分支的内容完全相同。</li>
+<li>git在第一次提交时，就有了一个叫<code>master</code>的主分支。</li>
+<li><code>git branch dev</code>，创建了一个叫做dev的分支</li>
+</ul>
+<h3><span id="cha-kan-fen-zhi">查看分支</span><a href="#cha-kan-fen-zhi" class="header-anchor"></a></h3><ul>
+<li><code>git branch</code>可以查看所有的分支，</li>
+<li>在当前分支的前面会有一个<code>*</code></li>
+<li>在git中，有一个特殊指针<code>HEAD</code>,永远会指向当前分支</li>
+</ul>
+<h3><span id="qie-huan-fen-zhi">切换分支</span><a href="#qie-huan-fen-zhi" class="header-anchor"></a></h3><ul>
+<li><code>git checkout 分支名称</code>切换分支  HEAD指针指向了另一个分支</li>
+<li>在当前分支的任何操作，都不会影响到其他的分支，除非进行了分支合并。</li>
+<li>提交代码时，会生产版本号，当前分支会指向最新的版本号。</li>
+</ul>
+<h3><span id="chuang-jian-bing-qie-huan-fen-zhi">创建并切换分支</span><a href="#chuang-jian-bing-qie-huan-fen-zhi" class="header-anchor"></a></h3><ul>
+<li><code>git checkout -b 分支名称</code> 创建并切换分支</li>
+<li>切换分支会做两件事情<ul>
+<li>创建一个新分支</li>
+<li>把head指针指向当前的分支</li>
+</ul>
 </li>
-<li><p><a href="http://www.xiaoxiaohan.com/js/38.html" target="_blank" rel="noopener">JS中改变this指向的方法</a></p>
+</ul>
+<h3><span id="shan-chu-fen-zhi">删除分支</span><a href="#shan-chu-fen-zhi" class="header-anchor"></a></h3><ul>
+<li><code>git branch -d 分支名称</code> 可以删除分支</li>
+<li>注意：不能在当前分支删除当前分支，需要切换到其他分支才能删除。</li>
+<li>注意：<code>master</code>分支是可以删除的，但是不推荐那么做。</li>
+</ul>
+<h3><span id="he-bing-fen-zhi">合并分支</span><a href="#he-bing-fen-zhi" class="header-anchor"></a></h3><ul>
+<li><code>git merge 分支名称</code> 将其他分支的内容合并到当前分支。</li>
+<li>在<code>master</code>分支中执行<code>git merge dev</code> 将<code>dev</code>分支中的代码合并到<code>master</code>分支</li>
+<li><a href="https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6" target="_blank" rel="noopener">分支合并</a></li>
+</ul>
+<h2><span id="git-he-bing-chong-tu">git合并冲突</span><a href="#git-he-bing-chong-tu" class="header-anchor"></a></h2><ul>
+<li>对于同一个文件，如果有多个分支需要合并时，容易出现冲突。</li>
+<li>合并分支时，如果出现冲突，只能手动处理，再次提交，一般的作法，把自己的代码放到冲突代码的后面即可。</li>
+</ul>
+<h1><span id="git-yuan-cheng-cang-ku">git远程仓库</span><a href="#git-yuan-cheng-cang-ku" class="header-anchor"></a></h1><h2><span id="github-yu-git">github与git</span><a href="#github-yu-git" class="header-anchor"></a></h2><p>git与github没有直接的关系。</p>
+<ul>
+<li>git是一个版本控制工具。</li>
+<li>github是一个代码托管平台，开源社区，是git的一个远程代码仓库。</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//1. gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。</span></span><br><span class="line"><span class="hljs-comment">//2. github免费，代码所有人都能看到，但是只有你自己能修改。付费的可以隐藏。</span></span><br><span class="line"><span class="hljs-comment">//3. 创建git项目时，不能有中文。</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/" target="_blank" rel="noopener">github官网</a></p>
+<p><a href="https://git.oschina.net/" target="_blank" rel="noopener">开源中国-git</a></p>
+<h2><span id="git-clone">git clone</span><a href="#git-clone" class="header-anchor"></a></h2><ul>
+<li>作用：克隆远程仓库的代码到本地</li>
+<li>git clone [远程仓库地址]</li>
+<li><code>git clone git://github.com/jepson/test.git</code>会在本地新建一个<code>test</code>文件夹，在test中包含了一个<code>.git</code>目录，用于保存所有的版本记录，同时test文件中还有最新的代码，你可以直接进行后续的开发和使用。</li>
+<li>git克隆默认会使用远程仓库的项目名字，也可以自己指定。需要是使用以下命令：<code>git clone [远程仓库地址] [本地项目名]</code></li>
+</ul>
+<h2><span id="git-push">git push</span><a href="#git-push" class="header-anchor"></a></h2><ul>
+<li>作用：将本地仓库中代码提交到远程仓库</li>
+<li><code>git push 仓库地址 master</code> 在代码提交到远程仓库，注意master分支必须写，不能省略</li>
+<li>例子：<code>git push git@github.com:jepson/test.git master</code> 如果第一次使用，需要填写github的用户名和密码</li>
+</ul>
+<h2><span id="git-pull">git pull</span><a href="#git-pull" class="header-anchor"></a></h2><ul>
+<li>作用：将远程的代码下载到本地</li>
+</ul>
+<ul>
+<li>通常在push前，需要先pull一次。</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 获取远程仓库的更新，并且与本地的分支进行合并</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<h2><span id="git-remote">git remote</span><a href="#git-remote" class="header-anchor"></a></h2><p>每次push操作都需要带上远程仓库的地址，非常的麻烦，我们可以给仓库地址设置一个别名</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 给远程仓库设置一个别名</span></span><br><span class="line">git remote add 仓库别名 仓库地址</span><br><span class="line">git remote add jepson git@github.com:jepson/test.git</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 删除jepson这个别名</span></span><br><span class="line">git remote remove jepson</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># git clone的仓库默认有一个origin的别名</span></span><br></pre></td></tr></table></figure>
+
+<h2><span id="ssh-mian-mi-ma-deng-lu">SSH免密码登陆</span><a href="#ssh-mian-mi-ma-deng-lu" class="header-anchor"></a></h2><p>git支持多种数据传输协议：</p>
+<ul>
+<li>https协议：<code>https://github.com/jepson/test.git</code>  需要输入用户名和密码</li>
+<li>ssh协议：<code>git@github.com:jepson/test.git</code>   可以配置免密码登录</li>
+</ul>
+<p>每次push或者pull代码，如果使用https协议，那么都需要输入用户名和密码进行身份的确认，非常麻烦。</p>
+<ul>
+<li>github为了账户的安全，需要对每一次push请求都要验证用户的身份，只有合法的用户才可以push</li>
+<li>使用ssh协议，配置ssh免密码，可以做到免密码往github推送代码</li>
+</ul>
+<h2><span id="ssh-mian-mi-ma-deng-lu-pei-zhi">SSH免密码登录配置</span><a href="#ssh-mian-mi-ma-deng-lu-pei-zhi" class="header-anchor"></a></h2><p>注意：这些命令需要在bash中敲</p>
+<ul>
+<li>1 创建SSH Key：<code>ssh-keygen -t rsa</code></li>
+<li>2 在文件路径 <code>C:\用户\当前用户名\</code> 找到 <code>.ssh</code> 文件夹</li>
+<li>3 文件夹中有两个文件：<ul>
+<li>私钥：<code>id_rsa</code></li>
+<li>公钥：<code>id_rsa.pub</code></li>
+</ul>
 </li>
+<li>4 在 <code>github -&gt; settings -&gt; SSH and GPG keys</code>页面中，新创建SSH key</li>
+<li>5 粘贴 公钥 <code>id_rsa.pub</code> 内容到对应文本框中</li>
+<li>5 在github中新建仓库或者使用现在仓库，拿到<code>git@github.com:用户名/仓库名.git</code></li>
+<li>6 此后，再次SSH方式与github“通信”，不用输入密码确认身份了</li>
 </ul>
 
             
@@ -231,7 +354,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/javacript/">javacript</a>
+                    <a class="has-link-grey -link" href="/tags/git/">git</a>
                 </div>
             </div>
         </div>
@@ -291,12 +414,19 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/07/21/hello-world/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/20/digui/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Hello World</span>
+                <span class="level-item">递归</span>
             </a>
         </div>
         
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/08/20/hello-world/">
+                <span class="level-item">Hello World</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
         
     </div>
 </div>
@@ -429,18 +559,18 @@
         
         <article class="media">
             
-            <a href="/2019/10/20/git/" class="media-left">
+            <a href="/2019/06/20/call、apply、bind的区别/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-20T02:50:42.219Z">2019-10-20</time></div>
-                    <a href="/2019/10/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-20T01:00:00.000Z">2019-06-20</time></div>
+                    <a href="/2019/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
                     </p>
                 </div>
             </div>
@@ -448,7 +578,7 @@
         
         <article class="media">
             
-            <a href="/2019/08/05/digui/" class="media-left">
+            <a href="/2019/04/20/digui/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
                 </p>
@@ -456,8 +586,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time></div>
-                    <a href="/2019/08/05/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T09:04:00.000Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
                     </p>
@@ -467,18 +597,18 @@
         
         <article class="media">
             
-            <a href="/2019/07/21/hello-world/" class="media-left">
+            <a href="/2018/12/20/git/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-21T11:11:48.095Z">2019-07-21</time></div>
-                    <a href="/2019/07/21/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:00:00.000Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
@@ -486,18 +616,18 @@
         
         <article class="media">
             
-            <a href="/2017/06/20/call、apply、bind的区别/" class="media-left">
+            <a href="/2018/08/20/hello-world/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-06-20T01:00:00.000Z">2017-06-20</time></div>
-                    <a href="/2017/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-20T03:24:00.000Z">2018-08-20</time></div>
+                    <a href="/2018/08/20/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
                     </p>
                 </div>
             </div>
@@ -570,9 +700,9 @@
         <ul class="menu-list">
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
+            <a class="level is-marginless" href="/archives/2019/06/">
                 <span class="level-start">
-                    <span class="level-item">十月 2019</span>
+                    <span class="level-item">六月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -581,9 +711,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
+            <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">八月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -592,9 +722,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
+            <a class="level is-marginless" href="/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">七月 2019</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -603,9 +733,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
+            <a class="level is-marginless" href="/archives/2018/08/">
                 <span class="level-start">
-                    <span class="level-item">六月 2017</span>
+                    <span class="level-item">八月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -760,18 +890,18 @@
         
         <article class="media">
             
-            <a href="/2019/10/20/git/" class="media-left">
+            <a href="/2019/06/20/call、apply、bind的区别/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-20T02:50:42.219Z">2019-10-20</time></div>
-                    <a href="/2019/10/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-20T01:00:00.000Z">2019-06-20</time></div>
+                    <a href="/2019/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
                     </p>
                 </div>
             </div>
@@ -779,7 +909,7 @@
         
         <article class="media">
             
-            <a href="/2019/08/05/digui/" class="media-left">
+            <a href="/2019/04/20/digui/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
                 </p>
@@ -787,8 +917,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time></div>
-                    <a href="/2019/08/05/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T09:04:00.000Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
                     </p>
@@ -798,18 +928,18 @@
         
         <article class="media">
             
-            <a href="/2019/07/21/hello-world/" class="media-left">
+            <a href="/2018/12/20/git/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-21T11:11:48.095Z">2019-07-21</time></div>
-                    <a href="/2019/07/21/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:00:00.000Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
@@ -817,18 +947,18 @@
         
         <article class="media">
             
-            <a href="/2017/06/20/call、apply、bind的区别/" class="media-left">
+            <a href="/2018/08/20/hello-world/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-06-20T01:00:00.000Z">2017-06-20</time></div>
-                    <a href="/2017/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-20T03:24:00.000Z">2018-08-20</time></div>
+                    <a href="/2018/08/20/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
                     </p>
                 </div>
             </div>
@@ -901,9 +1031,9 @@
         <ul class="menu-list">
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
+            <a class="level is-marginless" href="/archives/2019/06/">
                 <span class="level-start">
-                    <span class="level-item">十月 2019</span>
+                    <span class="level-item">六月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -912,9 +1042,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
+            <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">八月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -923,9 +1053,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
+            <a class="level is-marginless" href="/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">七月 2019</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -934,9 +1064,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
+            <a class="level is-marginless" href="/archives/2018/08/">
                 <span class="level-start">
-                    <span class="level-item">六月 2017</span>
+                    <span class="level-item">八月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1088,18 +1218,18 @@
         
         <article class="media">
             
-            <a href="/2019/10/20/git/" class="media-left">
+            <a href="/2019/06/20/call、apply、bind的区别/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-20T02:50:42.219Z">2019-10-20</time></div>
-                    <a href="/2019/10/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-20T01:00:00.000Z">2019-06-20</time></div>
+                    <a href="/2019/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
                     </p>
                 </div>
             </div>
@@ -1107,7 +1237,7 @@
         
         <article class="media">
             
-            <a href="/2019/08/05/digui/" class="media-left">
+            <a href="/2019/04/20/digui/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="递归">
                 </p>
@@ -1115,8 +1245,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-05T02:22:08.111Z">2019-08-05</time></div>
-                    <a href="/2019/08/05/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T09:04:00.000Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/digui/" class="title has-link-black-ter is-size-6 has-text-weight-normal">递归</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/数据算法/">数据算法</a>
                     </p>
@@ -1126,18 +1256,18 @@
         
         <article class="media">
             
-            <a href="/2019/07/21/hello-world/" class="media-left">
+            <a href="/2018/12/20/git/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="git基础入门">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-21T11:11:48.095Z">2019-07-21</time></div>
-                    <a href="/2019/07/21/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:00:00.000Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/git/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git基础入门</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
@@ -1145,18 +1275,18 @@
         
         <article class="media">
             
-            <a href="/2017/06/20/call、apply、bind的区别/" class="media-left">
+            <a href="/2018/08/20/hello-world/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="call、apply、bind区别">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-06-20T01:00:00.000Z">2017-06-20</time></div>
-                    <a href="/2017/06/20/call、apply、bind的区别/" class="title has-link-black-ter is-size-6 has-text-weight-normal">call、apply、bind区别</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-20T03:24:00.000Z">2018-08-20</time></div>
+                    <a href="/2018/08/20/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/js基础/">js基础</a>
+                        <a class="has-link-grey -link" href="/categories/HTML和CSS基础/">HTML和CSS基础</a>
                     </p>
                 </div>
             </div>
@@ -1229,9 +1359,9 @@
         <ul class="menu-list">
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
+            <a class="level is-marginless" href="/archives/2019/06/">
                 <span class="level-start">
-                    <span class="level-item">十月 2019</span>
+                    <span class="level-item">六月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1240,9 +1370,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
+            <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">八月 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1251,9 +1381,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
+            <a class="level is-marginless" href="/archives/2018/12/">
                 <span class="level-start">
-                    <span class="level-item">七月 2019</span>
+                    <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1262,9 +1392,9 @@
         </li>
         
         <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
+            <a class="level is-marginless" href="/archives/2018/08/">
                 <span class="level-start">
-                    <span class="level-item">六月 2017</span>
+                    <span class="level-item">八月 2018</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -1296,7 +1426,7 @@
             <div class="level-start has-text-centered-mobile" style="margin: 0 auto">
                 <!-- <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="call、apply、bind区别" height="28">
+                    <img src="/images/logo.svg" alt="git基础入门" height="28">
                 
                 </a> -->
                 <p class="is-size-7">
