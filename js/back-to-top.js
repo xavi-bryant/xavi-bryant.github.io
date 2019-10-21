@@ -8,6 +8,7 @@ $(document).ready(function () {
     var rightMargin = 20;
     var bottomMargin = 20;
     var lastState = null;
+    
     var state = {
         base: {
             classname: 'card has-text-centered',
