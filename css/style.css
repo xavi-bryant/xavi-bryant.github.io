@@ -638,3 +638,11 @@ figure.highlight .section {
 .section .container {
   margin: 0 0;
 }
+.column.is-10-widescreen {
+  flex: none;
+  width: 88.33333%;
+}
+.column.is-9-widescreen {
+  flex: none;
+  width: 88.33333%;
+}
