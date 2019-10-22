@@ -646,6 +646,6 @@ figure.highlight .section {
   flex: none;
   width: 88.33333%;
 }
-.has-text-grey {
+.level-item.has-text-grey {
   color: #ff4e6a !important;
 }
