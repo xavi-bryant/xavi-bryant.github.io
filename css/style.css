@@ -15,10 +15,9 @@ textarea {
   font-family: "Ubuntu", "Roboto", "Open Sans", "Microsoft YaHei", sans-serif;
 }
 @media screen and (min-width: 1280px) {
-  .is-1-column .container,
-  .is-2-column .container {
-    max-width: 1152px;
-    width: 1152px;
+  .is-1-column .container {
+    max-width: 1408px;
+    width: 1408px;
   }
 }
 @media screen and (min-width: 1472px) {
@@ -635,17 +634,12 @@ figure.highlight .section {
   padding-right: 0.75em;
   white-space: nowrap;
 }
-.section .container {
-  margin: 0 0;
-}
-.column.is-10-widescreen {
-  flex: none;
-  width: 88.33333%;
-}
-.column.is-9-widescreen {
-  flex: none;
-  width: 88.33333%;
-}
 .has-text-grey {
   color: #000 !important;
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1340px;
+    width: 1340px;
+  }
 }
