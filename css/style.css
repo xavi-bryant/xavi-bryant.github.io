@@ -635,3 +635,6 @@ figure.highlight .section {
   padding-right: 0.75em;
   white-space: nowrap;
 }
+.section .container {
+  margin: 0 0;
+}
