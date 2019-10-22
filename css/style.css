@@ -350,7 +350,7 @@ img.thumbnail {
   color: #3273dc !important;
 }
 .has-link-grey {
-  color: #7a7a7a !important;
+  color: #00bcd4 !important;
 }
 .has-link-black-ter {
   color: #242424 !important;
@@ -645,4 +645,7 @@ figure.highlight .section {
 .column.is-9-widescreen {
   flex: none;
   width: 88.33333%;
+}
+.has-text-grey {
+  color: #ff4e6a !important;
 }
